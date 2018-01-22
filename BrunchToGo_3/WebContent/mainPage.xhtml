@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Main Page</title>
+
+	<style>
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #BBC8D5;
+	color: black;
+	text-align: center;
+}
+
+.header {
+	text-align: center;
+}
+
+.wrap {
+	text-align: center;
+}
+
+.left {
+	float: left;
+}
+
+.center {
+	text-align: center;
+	margin: 5 auto;
+	display: inline-block;
+	border: black;
+}
+
+.right {
+	float: right;
+}
+</style>
+	<div class="header">
+		<h:form>
+			<p:outputLabel>
+				<h1 style="margin-top: 2">Brunch To Go</h1>
+			</p:outputLabel>
+		</h:form>
+	</div>
+</h:head>
+
+<h:body
+	style="background-color:#eaeef2; overflow-y: scroll; overflow: -moz-scrollbars-vertical;">
+	<p:scrollPanel style="width:auto;height:3000px">
+		<div class="wrap">
+			<div class="left">
+
+				<h:form>
+
+
+					<p:panelMenu style="width:300px">
+						<p:submenu label="Home">
+							<p:menuitem value="Home" outcome="mainPage" icon="ui-icon-disk" />
+							<p:menuitem value="About us" outcome="aboutMe"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Shopping Cart" outcome="shoppingCart"
+								icon="ui-icon-arrowrefresh-1-w" />
+						</p:submenu>
+						<p:submenu label="Login">
+							<p:menuitem value="Login" outcome="login" ajax="false"
+								icon="ui-icon-close" />
+						</p:submenu>
+					</p:panelMenu>
+				</h:form>
+			</div>
+
+			<div class="center">
+				<h:form>
+					<p:growl id="growl" life="2000" />
+					<p>
+						<font face="verdana">Choose your Items #{login.username1}!</font>
+					</p>
+					<h:panelGrid columns="2" cellpadding="7">
+
+						<f:metadata>
+							<f:viewParam name="bacon" value="#{mainPage.bacon}" />
+						</f:metadata>
+
+						<f:metadata>
+							<f:viewParam name="pancakes" value="#{mainPage.pancakes}" />
+						</f:metadata>
+						<f:metadata>
+							<f:viewParam name="potatoes" value="#{mainPage.potatoes}" />
+						</f:metadata>
+
+						<f:metadata>
+							<f:viewParam name="beans" value="#{mainPage.beans}" />
+						</f:metadata>
+
+						<f:metadata>
+							<f:viewParam name="toast" value="#{mainPage.toast}" />
+						</f:metadata>
+
+						<f:metadata>
+							<f:viewParam name="beans" value="#{mainPage.beans}" />
+						</f:metadata>
+
+
+
+
+						<div class="gallery">
+							Bacon (100g) <a target="_blank"
+								href="http://clipart-library.com/data_images/49401.png"> <img
+								src="http://clipart-library.com/data_images/49401.png"
+								alt="Bacon" width="300" height="200" />
+							</a>
+							<div class="desc">
+ <p:selectBooleanCheckbox value="#{mainPage.bacon}" />
+							</div>
+						</div>
+
+
+
+						<div class="gallery">
+							Pancakes (2 Stk) <a target="_blank"
+								href="http://clipart-library.com/data_images/23088.png"> <img
+								src="http://clipart-library.com/data_images/23088.png"
+								alt="Pancake" width="300" height="200" />
+							</a>
+							<div class="desc">
+ <p:selectBooleanCheckbox value="#{mainPage.pancakes}" />
+							</div>
+						</div>
+
+						<div class="gallery">
+							Potatoes (3 small baked potatoes) <a target="_blank"
+								href="http://clipart-library.com/img1/909487.jpg"> <img
+								src="http://clipart-library.com/img1/909487.jpg" alt="Potato"
+								width="300" height="200" />
+							</a>
+							<div class="desc">
+ <p:selectBooleanCheckbox value="#{mainPage.potatoes}" />
+							</div>
+						</div>
+
+						<div class="gallery">
+							Baked Beans <a target="_blank"
+								href="http://clipart-library.com/data_images/613746.png"> <img
+								src="http://clipart-library.com/data_images/613746.png"
+								alt="Beans" width="300" height="200" />
+							</a>
+							<div class="desc">
+ <p:selectBooleanCheckbox value="#{mainPage.beans}" />
+							</div>
+						</div>
+
+
+						<div class="gallery">
+							Toast (2 stk) <a target="_blank"
+								href="http://clipart-library.com/image_gallery/163741.jpg">
+								<img src="http://clipart-library.com/image_gallery/163741.jpg"
+								alt="Toast" width="300" height="200" />
+							</a>
+							<div class="desc">
+ <p:selectBooleanCheckbox value="#{mainPage.toast}" />
+							</div>
+						</div>
+
+						<div class="gallery">
+							Egg (1 stk) <a target="_blank"
+								href="http://clipart-library.com/image_gallery/555315.jpg">
+								<img src="http://clipart-library.com/image_gallery/555315.jpg"
+								alt="Egg" width="300" height="200" />
+							</a>
+							<div class="desc">
+ <p:selectBooleanCheckbox value="#{mainPage.eggs}" />
+							</div>
+						</div>
+
+						<p:commandButton value="Order!" update="display"
+							oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+
+		
+		    <p:dialog header="Values" modal="true" resizable="true" showEffect="fade" widgetVar="dlg">
+        <h:panelGrid columns="1" id="display">
+            <h:outputText value="Bacon: #{mainPage.bacon}" />
+            <h:outputText value="Pancakes: #{mainPage.pancakes}" />
+            <h:outputText value="Potato: #{mainPage.pancakes}" />
+           <h:outputText value="Beans: #{mainPage.beans}" />
+           <h:outputText value="Toast: #{mainPage.toast}" />
+           <h:outputText value="Toast: #{mainPage.eggs}" />
+           <p:button value="Okay!" type="button" outcome="shoppingCart" icon="ui-icon-check"></p:button>
+        </h:panelGrid>
+    </p:dialog>
+					</h:panelGrid>
+				</h:form>
+			</div>
+			<div class="right">
+				<p:button value="view profile" icon="ui-icon-pencil"
+					outcome="editProfile"></p:button>
+
+			</div>
+			<div class="footer">
+				<p>
+					<font face="verdana">Footer</font>
+				</p>
+			</div>
+		</div>
+	</p:scrollPanel>
+</h:body>
+</html>

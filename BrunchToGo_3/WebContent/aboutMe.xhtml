@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Main Page</title>
+
+    <style>
+    .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #BBC8D5;
+   color: black;
+   text-align: center;
+}
+.header{
+text-align: center;
+
+}
+
+.wrap {
+
+text-align: center;
+
+}
+
+.left {
+
+float:left;
+}
+.center {
+text-align: center;
+margin:5 auto;
+display: inline-block;
+border: black;
+
+}
+ .right {
+ float:right;
+ }
+</style>
+<div class="header">
+    <h:form>
+<p:outputLabel> 
+<h1 style="margin-top:2">About Us!</h1>
+</p:outputLabel>
+</h:form>
+</div>
+</h:head>
+
+<h:body style="background-color:#eaeef2; overflow-y: scroll; overflow: -moz-scrollbars-vertical;">
+<p:scrollPanel  style="width:auto;height:1000px">
+<div class="wrap">
+<div class="left">
+    <h:form>
+
+ 
+    <p:panelMenu style="width:300px">
+        <p:submenu label="Home">
+            <p:menuitem value="Home" outcome="mainPage" icon="ui-icon-disk" />
+            <p:menuitem value="About us" icon="ui-icon-arrowrefresh-1-w" />
+        </p:submenu>
+        <p:submenu label="Login">
+            <p:menuitem value="Login" outcome="login"  ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:separator />
+    </p:panelMenu>
+</h:form>
+</div>
+
+
+
+<div class="center">
+<h:panelGrid columns="2" cellpadding="4">
+<h:form>
+<h1>Hallo !</h1>
+
+<p>Wer findet Brunch schon nicht fantastisch? Aber findet Sie das nicht müehsam, immer in ein Restaurants zu gehen oder wollen Sie einfach nicht mehr das Ihre Küche nach Speck riecht?
+Wir haben die Lösung für Sie!
+Wir liefern Brunch-Produkt (Speck!, Pancakes!, Kartoffeln!, Baked Beans!, Toast! und gebrattene Eier!) zu Ihnen nach Hause!
+Sie wählen aus was für ein Menü Sie wollen, wir liefern es zu Ihrer Haustür!
+</p>
+</h:form>
+</h:panelGrid>
+</div>
+</div>
+<div class="right">
+<p:button value="Back to Main Page" icon="ui-icon-home" outcome="mainPage"></p:button>
+<div class="footer">
+ <p><font face="verdana">Footer</font></p>
+</div>
+</div>
+</p:scrollPanel>
+</h:body>
+</html>
